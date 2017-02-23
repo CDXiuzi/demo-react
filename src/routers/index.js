@@ -5,21 +5,18 @@
  */
 
 import React from 'react';
-import { Router } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import Main from '../components/Main';
+import Launcher from '../containers/Launcher';
 
-const rootRouter = {
-  childRoutes: [
-    {
-      path: '/',
-      component: Main
-    }
-  ]
-};
-
+// Route Component.
 const Routers = ({ history }) => {
   return (
-    <Router history={history} routes={rootRouter} />
+    <Router history={history}>
+      <Route path="/" component={Main}>
+        <IndexRoute component={Launcher} />
+      </Route>
+    </Router>
   );
 };
 
