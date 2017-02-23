@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class Test extends Component {
+class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -32,7 +32,7 @@ class Test extends Component {
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit App.js
+          To get started, edit /components/Main.js
         </Text>
         <Text style={styles.instructions}>
           Double tap R on your keyboard to reload,{'\n'}
@@ -43,4 +43,4 @@ class Test extends Component {
   }
 }
 
-export default Test;
+export default Main;

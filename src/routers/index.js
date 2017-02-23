@@ -6,13 +6,13 @@
 
 import React from 'react';
 import { Router } from 'react-router';
-import Test from '../components/Test';
+import Main from '../components/Main';
 
 const rootRouter = {
   childRoutes: [
     {
       path: '/',
-      component: Test
+      component: Main
     }
   ]
 };
