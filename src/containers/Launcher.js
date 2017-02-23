@@ -5,12 +5,9 @@
  */
 
 import React, { Component, PropTypes } from 'react';
+import { AsyncStorage, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import LauncherComponent from '../components/Launcher';
-
-const mapStateToProps = state => ({
-  uid: state.uid
-});
 
 class Launcher extends Component {
 
@@ -38,9 +35,23 @@ class Launcher extends Component {
    * @homepage http://medz.cn
    */
   componentDidMount() {
-    let { uid } = this.props;
-    console.log(uid);
+    const accessTokenKey = '@inyota:access-token';
+    AsyncStorage.getItem(accessTokenKey)
+      .then(token => this.doToken(token))
+      .catch(() => {
+        Alert.alert('应用运行错误，请卸载后重现安装！！！');
+      });
+  }
+
+  doToken(token) {
+
+    const { router } = this.props;
+    const { replace } = router;
+
+    if (!token) {
+      replace('/base');
+    }
   }
 }
 
-export default connect(mapStateToProps)(Launcher);
+export default Launcher;
