@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
+  StatusBar,
   View,
 } from 'react-native';
 
@@ -22,6 +23,11 @@ class Main extends Component {
 
     return (
       <View style={styles.container}>
+        <StatusBar
+          backgroundColor="rgba(0, 0, 0, .4)"
+          barStyle="light-content"
+          translucent={true}
+        />
         {children}
       </View>
     );
