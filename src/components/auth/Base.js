@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, Button } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 
 // resources.
 import bg from '../../../resource/assets/bg.png';
@@ -30,11 +30,23 @@ const styles = StyleSheet.create({
   },
   loginButtomView: {
     width: 120,
-    backgroundColor: '#ee5259',
+    backgroundColor: '#ee5259'
   },
   regButtomView: {
     width: 120,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
+  },
+  buttomTextCommom: {
+    textAlign: 'center',
+    paddingTop: 12,
+    paddingBottom: 12,
+    fontSize: 14
+  },
+  loginButtomText: {
+    color: '#fff'
+  },
+  regButtomText: {
+    color: '#ee5259'
   }
 });
 
@@ -47,20 +59,26 @@ class Base extends Component {
           source={bg}
         />
         <View style={styles.buttomContainer}>
-          <View style={styles.loginButtomView}>
-            <Button
-              title="登录"
-              onPress={() => {}}
-              color="#fff"
-            />
-          </View>
-          <View style={styles.regButtomView}>
-            <Button
-              title="注册"
-              onPress={() => {}}
-              color="#ee5259"
-            />
-          </View>
+          <TouchableHighlight
+            onPress={() => {}}
+          >
+            <View style={styles.loginButtomView}>
+              <Text style={[styles.buttomTextCommom, styles.loginButtomText]}>
+                登录
+              </Text>
+            </View>
+          </TouchableHighlight>
+
+          <TouchableHighlight
+            onPress={() => {}}
+          >
+            <View style={styles.regButtomView}>
+              <Text style={[styles.buttomTextCommom, styles.regButtomText]}>
+                注册
+              </Text>
+            </View>
+          </TouchableHighlight>
+
         </View>
       </View>
     );
