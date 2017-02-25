@@ -5,10 +5,11 @@
  */
 
 import { combineReducers } from 'redux';
-import { USER_UID } from '../actions/types';
+import { USER_UID, STATUS_BAR } from '../actions/types';
 
 // reducers
 import { routerReducer } from 'react-router-redux';
+import statusBar from './statusBar';
 
 /**
  * The uid store.
@@ -26,7 +27,8 @@ const uid = (state = 0, { type, uid }) => (
 
 // Created reducer.
 const reducer = {
-  uid,
+  [USER_UID]: uid,
+  [STATUS_BAR]: statusBar,
   routing: routerReducer
 };
 
