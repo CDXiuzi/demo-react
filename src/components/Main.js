@@ -4,7 +4,7 @@
  * @author Seven Du <shiweidu@outlook.com>
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import {
   StyleSheet,
   StatusBar,
@@ -18,16 +18,17 @@ const styles = StyleSheet.create({
 });
 
 class Main extends Component {
+
+  static propTypes = {
+    statusBarSettings: PropTypes.object.isRequired
+  };
+
   render() {
-    const { children } = this.props;
+    const { children, statusBarSettings } = this.props;
 
     return (
       <View style={styles.container}>
-        <StatusBar
-          backgroundColor="rgba(0, 0, 0, .4)"
-          barStyle="light-content"
-          translucent={true}
-        />
+        <StatusBar {...statusBarSettings} />
         {children}
       </View>
     );
