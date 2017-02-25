@@ -2,7 +2,7 @@
  * The component is login and register page.
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, Image, TouchableHighlight } from 'react-native';
 
 // resources.
@@ -51,7 +51,15 @@ const styles = StyleSheet.create({
 });
 
 class Base extends Component {
+
+  static propTypes = {
+    handleLogin: PropTypes.func.isRequired
+  };
+
   render() {
+
+    const { handleLogin } = this.props;
+
     return (
       <View style={styles.container}>
         <Image
@@ -60,7 +68,7 @@ class Base extends Component {
         />
         <View style={styles.buttomContainer}>
           <TouchableHighlight
-            onPress={() => {}}
+            onPress={handleLogin}
           >
             <View style={styles.loginButtomView}>
               <Text style={[styles.buttomTextCommom, styles.loginButtomText]}>
