@@ -4,7 +4,7 @@
  * @author Seven Du <shiweidu@outlook.com>
  */
 
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { StyleSheet, View, Text, TextInput, Image, TouchableHighlight } from 'react-native';
 
 import accessIcon from '../../../resource/assets/user.png';
@@ -69,11 +69,32 @@ const styles = StyleSheet.create({
     zIndex: 1,
     left: 16,
     top: 14
+  },
+  moreBottom: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingRight: 16,
+    paddingLeft: 16,
+    marginTop: 16
+  },
+  moreBottomText: {
+    color: '#4078c0'
   }
 });
 
 class Login extends Component {
+
+  static propTypes = {
+    onLogin: PropTypes.func.isRequired,
+    onChangeAccess: PropTypes.func.isRequired,
+    onchangePassword: PropTypes.func.isRequired
+  };
+
   render() {
+
+    const { onLogin, onChangeAccess, onchangePassword } = this.props;
+
     return (
       <View style={styles.container}>
         <View style={styles.navBar}>
@@ -90,6 +111,7 @@ class Login extends Component {
             autoFocus={false}
             keyboardType="numeric"
             maxLength={11}
+            onChangeText={onChangeAccess}
           />
         </View>
 
@@ -106,12 +128,14 @@ class Login extends Component {
             autoCorrect={false}
             selectTextOnFocus={true}
             secureTextEntry={true}
+            returnKeyLabel="done"
+            onChangeText={onchangePassword}
           />
         </View>
          
         <TouchableHighlight
           style={styles.loginBottomBox}
-          onPress={() => {}}
+          onPress={onLogin}
         >
           <Text
             style={styles.loginButtomText}
@@ -119,6 +143,17 @@ class Login extends Component {
             登录
           </Text>
         </TouchableHighlight>
+
+        <View
+          style={styles.moreBottom}
+        >
+          <Text style={styles.moreBottomText}>
+            注册
+          </Text>
+          <Text style={styles.moreBottomText}>
+            忘记密码?
+          </Text>
+        </View>
 
       </View>
     );
