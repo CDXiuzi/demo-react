@@ -108,7 +108,7 @@ class Login extends Component {
             placeholder="手机号"
             autoCapitalize="none"
             autoCorrect={false}
-            autoFocus={false}
+            autoFocus={true}
             keyboardType="numeric"
             maxLength={11}
             onChangeText={onChangeAccess}
