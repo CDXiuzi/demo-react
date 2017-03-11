@@ -6,6 +6,7 @@
 
 import React, { Component } from 'react';
 import LoginComponent from '../../components/auth/Login';
+import { login } from '../../utils/auth';
 
 class Login extends Component {
 
@@ -42,7 +43,22 @@ class Login extends Component {
   }
 
   onLogin() {
-    console.log(this.state);
+
+    fetch('https://www.baidu.com')
+      .then(res => console.log(res));
+
+    // const { access, password } = this.state;
+    // // console.log(access, password);
+    // const res = login(access, password);
+
+    // // console.log(res);
+
+    // res.then(response => console.log(response));
+
+    // res.catch(error => console.log(error));
+
+      // .then(response => console.log(response))
+      // .catch(error => console.log(...error));
   }
 }
 
